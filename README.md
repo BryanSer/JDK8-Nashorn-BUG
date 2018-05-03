@@ -19,10 +19,14 @@ byte code:
              * 20: areturn
 ```
 ---
-Obviously the ClassLoader that returned is current thread's ClassLoader
+Obviously the ClassLoader that returned is current thread's ClassLoader.
+
 If what it returned is null then return NashornScriptEngineFactory's ClassLoader.
+
 This means to construct[ScriptEngineManager(ClassLoader loader)].(https://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#ScriptEngineManager-java.lang.ClassLoader-)with a ClassLoader is useless.
 
 Repair: 
+
 Because getAppClassLoader returned classloader is current thread's ClassLoader.
+
 So before ScriptEngineManager get Nashorn, edit the current thread's ClassLoader to achive the NashornScriptEngine use you gave classloader.
