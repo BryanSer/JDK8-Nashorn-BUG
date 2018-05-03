@@ -7,7 +7,8 @@ BUG Description: When construct[ScriptEngineManager](https://docs.oracle.com/jav
 Reason: 
 At _jdk.nashorn.api.scripting.NashornScriptEngineFactory:431_ static method *getAppClassLoader()*
 byte code: 
->              * 0: invokestatic  java/lang/Thread.currentThread:()Ljava/lang/Thread;
+```
+             * 0: invokestatic  java/lang/Thread.currentThread:()Ljava/lang/Thread;
              * 3: invokevirtual java/lang/Thread.getContextClassLoader:()Ljava/lang/ClassLoader;
              * 6: astore_0
              * 7: aload_0
@@ -17,9 +18,7 @@ byte code:
              * 16: goto          20
              * 19: aload_0
              * 20: areturn
-             
-             
----
+```
         Obviously the ClassLoader that returned is current thread's ClassLoader[^1]
         if what it returned is null then return NashornScriptEngineFactory's ClassLoader[^2]
         this means to construct[ScriptEngineManager(ClassLoader loader)](https://docs.oracle.com/javase/8/docs/api/javax/script/ScriptEngineManager.html#ScriptEngineManager-java.lang.ClassLoader-)with a ClassLoader is useless.
