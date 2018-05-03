@@ -31,4 +31,4 @@ Repair:
 
 Because getAppClassLoader returned classloader is current thread's ClassLoader.
 
-So before ScriptEngineManager get Nashorn, edit the current thread's ClassLoader to achive the NashornScriptEngine use you gave classloader.
+Before ScriptEngineManager get Nashorn, edit the current thread's ClassLoader to achive the NashornScriptEngine use you gave classloader.
