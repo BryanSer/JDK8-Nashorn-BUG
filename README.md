@@ -17,6 +17,8 @@ byte code:
              * 16: goto          20
              * 19: aload_0
              * 20: areturn
+             
+             
 ---
         Obviously the ClassLoader that returned is current thread's ClassLoader[^1]
         if what it returned is null then return NashornScriptEngineFactory's ClassLoader[^2]
